@@ -1,1 +1,24 @@
+def gcd(a,b):
+    if b==0:
+        return a
+    return gcd(b,a%b)
+t=int(input())
+for i in range(t):
+    n=int(input())
+    a=list(map(int,input().split()))
+    i=0
+    ans=1
+    c=0
+    while i<n:
+        p=i
+        c=0
+        while a[i]!=0:
+            p=i
+            i=a[i]-1
+            a[p]=0
+            c+=1
+        i=p+1
+        if c!=0:
+            ans=ans*c//gcd(ans,c)
+    print(ans)
 
